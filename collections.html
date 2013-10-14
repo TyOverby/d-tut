@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Fineprint &mdash; Pragmatic D Tutorial</title>
+    <title>Collections &mdash; Pragmatic D Tutorial</title>
     
     <link rel="stylesheet" href="_static/marcelene.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -26,7 +26,8 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Pragmatic D Tutorial" href="index.html" />
-    <link rel="prev" title="What Next?" href="next.html" /> 
+    <link rel="next" title="Unicode" href="unicode.html" />
+    <link rel="prev" title="Multicores" href="multicores.html" /> 
   </head>
   <body>
     <div class="header-wrapper">
@@ -34,8 +35,10 @@
         <div class="headertitle"><a
           href="index.html">Pragmatic D Tutorial</a></div>
         <div class="rel">
-          <a href="next.html" title="What Next?"
-             accesskey="P">previous</a>
+          <a href="multicores.html" title="Multicores"
+             accesskey="P">previous</a> |
+          <a href="unicode.html" title="Unicode"
+             accesskey="N">next</a>
         </div>
        </div>
     </div>
@@ -48,19 +51,54 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="fineprint">
-<h1>Fineprint<a class="headerlink" href="#fineprint" title="Permalink to this headline">¶</a></h1>
-<p>I hope you learned you something by reading this tutorial.
-If you give me some feedback, maybe I can also learn something.
-Send mail to <a class="reference external" href="mailto:qznc&#37;&#52;&#48;web&#46;de">qznc<span>&#64;</span>web<span>&#46;</span>de</a>.</p>
-<div class="section" id="colophon">
-<h2>Colophon<a class="headerlink" href="#colophon" title="Permalink to this headline">¶</a></h2>
-<p>Made with Sphinx.</p>
+  <div class="section" id="collections">
+<h1>Collections<a class="headerlink" href="#collections" title="Permalink to this headline">¶</a></h1>
+<p>Nearly every program requires collections:
+Arrays, vectors, maps, queues, lists, stacks.</p>
+<div class="section" id="slices">
+<h2>Slices<a class="headerlink" href="#slices" title="Permalink to this headline">¶</a></h2>
+<p>The basic array type in D is called a slice.
+In C an array is just syntactic sugar for a pointer,
+which means that length checks must be handled by the user.
+Higher-level languages like Java provide an referenced data structure,
+which necessarily means a double indirection.
+D slices are in between.
+They know their size,
+so boundary checks are implicit.
+However,
+they are low-level to be fast.
+This means they might have some unexpected behavior.
+I strongly advice to read
+<a class="reference external" href="http://dlang.org/d-array-article.html">this article</a>,
+which covers everything you need to know about slices.
+Proper container classes are build on top of slices.</p>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://dlang.org/d-array-article.html">Detailed article about slices</a>,
+<a class="reference external" href="http://dlang.org/arrays.html">Language Reference: Arrays</a></p>
 </div>
-<div class="section" id="licence">
-<h2>Licence<a class="headerlink" href="#licence" title="Permalink to this headline">¶</a></h2>
-<p>Code is Boost License 1.0.</p>
-<p>Text is <a class="reference external" href="http://creativecommons.org/licenses/by-nc/3.0/">Creative Commons Attribution Non-Commercial 3.0</a>.</p>
+</div>
+<div class="section" id="std-container">
+<h2>Std.container<a class="headerlink" href="#std-container" title="Permalink to this headline">¶</a></h2>
+<p>The standard library provides <a class="reference external" href="http://dlang.org/phobos/std_container.html">std.container</a>,
+which provides a few generic containers.</p>
+</div>
+<div class="section" id="more">
+<h2>More<a class="headerlink" href="#more" title="Permalink to this headline">¶</a></h2>
+<p>Everybody agrees that currently the standard library should provide more collection types.
+However, the community wants to have the allocator design finished,
+before collections are designed,
+because allocation is a important part within collections.
+Nevertheless, if you need more right now,
+there are a few options.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/schveiguy/dcollections">Dcollections</a></li>
+<li><a class="reference external" href="https://github.com/SiegeLord/Tango-D2">Tango</a></li>
+</ul>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://forum.dlang.org/post/xadomzylmuodqoejcgau&#64;forum.dlang.org">Forum discussion</a></p>
+</div>
 </div>
 </div>
 
@@ -84,17 +122,18 @@ Send mail to <a class="reference external" href="mailto:qznc&#37;&#52;&#48;web&#
 <li class="toctree-l1"><a class="reference internal" href="memory.html">Memory Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c.html">C Interoperability</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multicores.html">Multicores</a></li>
-<li class="toctree-l1"><a class="reference internal" href="collections.html">Collections</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Collections</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#slices">Slices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#std-container">Std.container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more">More</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="unicode.html">Unicode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stdlib.html">Standard Library: Short Tour</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ide.html">IDE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gui.html">GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="next.html">What Next?</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Fineprint</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#colophon">Colophon</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#licence">Licence</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="fineprint.html">Fineprint</a></li>
 </ul>
 
           <h3 style="margin-top: 1.5em;">Search</h3>
@@ -115,10 +154,12 @@ Send mail to <a class="reference external" href="mailto:qznc&#37;&#52;&#48;web&#
     <div class="footer-wrapper">
       <div class="footer">
         <div class="left">
-          <a href="next.html" title="What Next?"
-             >previous</a>
+          <a href="multicores.html" title="Multicores"
+             >previous</a> |
+          <a href="unicode.html" title="Unicode"
+             >next</a>
             <br/>
-            <a href="_sources/fineprint.txt"
+            <a href="_sources/collections.txt"
                rel="nofollow">Show Source</a>
         </div>
 
